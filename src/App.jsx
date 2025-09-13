@@ -13,7 +13,7 @@ function App() {
   },[dispatch]);
   return(
   <Routes>
-    <Route path ="/login" element= {<Login></Login>}></Route>
+    <Route path ="/" element= {<Login></Login>}></Route>
 
   </Routes>
   )
