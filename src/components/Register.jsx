@@ -26,15 +26,16 @@ const handleSubmit = async(e)=>{
     }
 }
     return (
-        <div className  = "min-h-screen flex item-center justify-center ">
-<form onSubmit={handleSubmit} className = "p-6 rounded shadow-md w-full max-w-md">
+        <div className  = "min-h-screen flex items-center justify-center bg-gray-900">
+<form onSubmit={handleSubmit} className = "p-6 bg-gray-400 rounded shadow-md w-full max-w-md ">
 
- <h2 className="text-2xl mb-4">Register</h2>
+ <h2 className="text-2xl mb-4 font-bold text-white">Register</h2>
     <div className = "mb-4">
         <label className = "block"> Email :</label>
         <input
             className = "border rounded w-full py-2 px-3"
             type = "email"
+            placeholder = "Enter your email"
             value = {email}
             onChange = {e=>setEmail(e.target.value)}
             required
@@ -45,16 +46,17 @@ const handleSubmit = async(e)=>{
         <input
             className = "border rounded w-full py-2 px-3"
             type = "password"
+            placeholder = "Enter your password"
             value = {password}
             onChange = {e=>setPassword(e.target.value)}
             required
         />
     </div>
-    <button className="bg-blue-500 text-white py-2 px-4 rounded" type="submit">
+    <button className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer" type="submit">
             Register
     </button>
     <p className="mt-4">
-        Already have an account?  <span className="text-blue-500 cursor-pointer" onClick={() => navigate('/login')}>Login</span></p>
+        Already have an account?  <span className="text-blue-500 font-semibold cursor-pointer cursor-pointer" onClick={() => navigate('/login')}>Login</span></p>
 </form>
 
         </div>
