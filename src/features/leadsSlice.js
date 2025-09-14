@@ -48,12 +48,12 @@ export const deleteLead = createAsyncThunk('leads/deleteLead',async(id,thunkAPI)
     }
 });
 
-const fetchLeadById  = createAsyncThunk('leads/fetchLeadById',async(id,thunkAPI)=>{
+export const fetchLeadById  = createAsyncThunk('leads/fetchLeadById',async(id,thunkAPI)=>{
     try{
         const response = await api.get(`/api/leads/${id}`);
         return response.data;
     }catch(error){
-        return thunkAPI.rejectedWithValue('Failed to fetch lead details');
+        return thunkAPI.rejectWithValue('Failed to fetch lead details');
     }
 
 
@@ -64,7 +64,7 @@ const fetchLeadById  = createAsyncThunk('leads/fetchLeadById',async(id,thunkAPI)
 
 const leadsSlice = createSlice({
     name:'leads',
-    initialsState :{
+    initialState :{
         leads:[],
         currentLeads: null,
         page:1,

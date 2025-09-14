@@ -3,8 +3,8 @@ import {useSelector,useDispatch} from 'react-redux';
 import {fetchLeads, deleteLead} from "../features/leadsSlice";
 import {useNavigate} from 'react-router-dom';
 import {AgGridReact} from 'ag-grid-react';
-import 'ag-grid-community/dist/ag-grid.css';
-import 'ag-grid-community/dist/ag-theme-alpine.css';
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
 function LeadList(){
 
