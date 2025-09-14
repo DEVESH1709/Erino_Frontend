@@ -25,21 +25,15 @@ const handleSubmit = async(e)=>{
         <div className = "min-h-screen flex items-center justify-center">
       
 <form onSubmit={handleSubmit} className = "p-6 rounded shadow-md w-full max-w-md">
- <h2 className = "text-2xl mb-4">
- Login
-
- </h2>
+ <h2 className = "text-2xl mb-4">Login</h2>
 
  <div className = "mb-4">
- <label className = "block">
- Email : </label>
- <imput
-className= "border rounded w-full py-2 px-3"
+ <label className = "block">Email : </label>
+ <input className= "border rounded w-full py-2 px-3"
     type = "email"
     value  ={email}
     onChange = {e=>setEmail(e.target.value)}
     required
-
  />
  </div>
 
