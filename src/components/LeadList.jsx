@@ -2,12 +2,16 @@ import React, {useEffect,useRef} from "react";
 import {useSelector,useDispatch} from 'react-redux';
 import {fetchLeads, deleteLead} from "../features/leadsSlice";
 import {useNavigate} from 'react-router-dom';
-import {AgGridReact} from 'ag-grid-react';
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
-ModuleRegistry.registerModules([AllCommunityModule]);
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-alpine.css";
 
+import { AgGridReact } from 'ag-grid-react';
+// import { ModuleRegistry, AllModules } from 'ag-grid-community';
+// ModuleRegistry.registerModules(AllModules);
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
+
+// Register modules once
+ModuleRegistry.registerModules([AllCommunityModule]);
 function LeadList(){
 
     const dispatch = useDispatch();
@@ -157,12 +161,15 @@ function LeadList(){
           ref={gridRef}
           rowData={leads}
           columnDefs={columns}
+           theme="legacy"
           pagination={true}
           paginationPageSize={10}
+          // paginationPageSizeSelector={[10, 20, 50, 100]}
           onGridReady={onGridReady}
           onPaginationChanged={onPaginationChanged}
           onFilterChanged={onFilterChanged}
-          rowSelection="single"
+          rowSelection={{ type: "multiRow" }}
+          
         />  
         </div>
          <div className="mt-2">

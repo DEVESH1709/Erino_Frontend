@@ -77,7 +77,7 @@ const leadsSlice = createSlice({
     extraReducers:(builder)=>{
         builder
         .addCase(fetchLeads.fulfilled,(state,action)=>{
-            state.leads = action.payload.leads;
+            state.leads = action.payload.data;
             state.page = action.payload.page;
             state.totalPages = action.payload.totalPages;
             state.total = action.payload.total;
