@@ -39,6 +39,15 @@ useEffect(()=>{
     }
 },[currentLead,id]);
 
+ const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = { ...formData };
@@ -54,6 +63,8 @@ useEffect(()=>{
       alert('Error saving lead');
     }
   };
+
+
 
  return (
     <div className="max-w-lg mx-auto p-4 bg-white rounded shadow">

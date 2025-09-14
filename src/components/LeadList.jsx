@@ -3,6 +3,8 @@ import {useSelector,useDispatch} from 'react-redux';
 import {fetchLeads, deleteLead} from "../features/leadsSlice";
 import {useNavigate} from 'react-router-dom';
 import {AgGridReact} from 'ag-grid-react';
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+ModuleRegistry.registerModules([AllCommunityModule]);
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
