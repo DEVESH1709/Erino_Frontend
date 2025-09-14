@@ -2,14 +2,22 @@ import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import api from "../api/api.js";
 
 
+
 export const registerUser = createAsyncThunk('auth/register',async(userData,thunkAPI)=>{
     try{
         const response  = await api.post('/api/auth/register',userData);
         return response.data;
     }catch(error){
-        return thunkAPI.rejectWithValue(error.response.data.message || 'Registration failed');
+        let message = 'Registration failed';
+        if (error.response && error.response.data) {
+            message = error.response.data.message || JSON.stringify(error.response.data);
+        } else if (error.message) {
+            message = error.message;
+        }
+        return thunkAPI.rejectWithValue(message);
     }
 });
+
 
 
 export const loginUser = createAsyncThunk('auth/login',async(userData,thunkAPI)=>{
@@ -17,8 +25,13 @@ export const loginUser = createAsyncThunk('auth/login',async(userData,thunkAPI)=
         const response = await api.post('/api/auth/login',userData);
         return response.data;
     }catch(error){
-        return thunkAPI.rejectWithValue(error.response.data.message || 'Login failed');
-
+        let message = 'Login failed';
+        if (error.response && error.response.data) {
+            message = error.response.data.message || JSON.stringify(error.response.data);
+        } else if (error.message) {
+            message = error.message;
+        }
+        return thunkAPI.rejectWithValue(message);
     }
 });
 

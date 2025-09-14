@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {useDispatch} from "react-dom";
+import {useDispatch} from "react-redux";
 import {registerUser} from "../features/authSlice";
 import {useNavigate} from 'react-router-dom';
 
@@ -15,10 +15,14 @@ const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
         await dispatch(registerUser({email,password})).unwrap();
-        navigate('/login');
+        navigate('/leads');
     }
     catch(error){
-        alert(error);
+        if (typeof error === 'object' && error !== null) {
+            alert(error.message || JSON.stringify(error));
+        } else {
+            alert(error);
+        }
     }
 }
     return (

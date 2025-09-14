@@ -123,7 +123,7 @@ function LeadList(){
         );
     };
 
-    const coloumns=[
+    const columns=[
          { headerName: "First Name", field: "first_name", filter: 'agTextColumnFilter' },
     { headerName: "Last Name",  field: "last_name",  filter: 'agTextColumnFilter' },
     { headerName: "Email",      field: "email",      filter: 'agTextColumnFilter' },
